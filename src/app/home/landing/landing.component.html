@@ -1,0 +1,71 @@
+<!-- WELCOME SECTION -->
+<section id="home" class="Welcome" fxLayout="column" fxLayoutAlign="center center">
+    <div class="Welcome_Container">
+        <div>
+            <h1>Hi, I'm Kim.</h1>
+        <h3>I'm a Front-end developer from the Philippines.</h3>
+        <button mat-button routerLink="./" fragment="about">About me</button>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section class="About" id="about">
+    <div fxLayout="column" class="Content_Container">
+        <div fxLayout="column">
+            <h1>I'm a designer, developer and writer.</h1>
+            <h2>You can find me on instagram, where I post about sustainability, and Tumblr where I post coding and graphics resources.</h2>
+            <p>I've been a front-end developer since 2016 but I've been playing around with design and front-end coding since high school.</p>
+            <p>My work experience spans 2 countries (Canada and the Philippines) and a few industries (FinTech, CMS for small-medium businesses and startups).</p>
+            <p>My main passions are design, the environment and books.</p>
+            <p>In my spare time, you'll find me glued to my Kobo, on the Switch or watching whatever the latest comics-centric adaptation is.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="Contact" >
+    <div class="Content_Container">
+        <h1>Drop me a message.</h1>
+        <form [formGroup]="contactForm">
+            <div fxLayout.gt-sm="row" fxLayout.sm="column" fxLayoutGap.gt-sm="1rem">
+                <mat-form-field appearance="fill">
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name">
+                    <mat-error *ngIf="contactForm.get('name')?.hasError('required')">
+                        Name is required.
+                    </mat-error>
+                    <mat-error *ngIf="contactForm.get('name')?.hasError('pattern')">
+                        Please enter a valid name. Only letters and the following characters are allowed: , . ' -
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" type="email">
+                    <mat-error *ngIf="contactForm.get('email')?.hasError('required')">
+                        Email is required.
+                    </mat-error>
+                    <mat-error *ngIf="contactForm.get('email')?.hasError('email')">
+                        Please enter a valid email. ex. captainamerica@marvel.com
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row">
+                <mat-form-field appearance="fill">
+                    <mat-label>Message</mat-label>
+                    <textarea matInput formControlName="message"></textarea>
+                    <mat-error *ngIf="contactForm.get('message')?.hasError('required')">
+                        Message is required.
+                    </mat-error>
+                    <mat-error *ngIf="contactForm.get('message')?.hasError('pattern')">
+                        Please enter a valid message. Stick to characters, numbers and regular symbols (ex. . - , ' &).
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="flex-end">
+                <button mat-button (click)="sendMessage()" [disabled]="!contactForm.valid">Send</button>
+            </div>
+        </form>
+    </div>
+    
+</section>

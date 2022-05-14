@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+
+@background: #fcfcfc;
+@bodyFont: 'Poppins';
+@accentFont: 'Playfair Display';
+@primaryColor: #2b49e0;
+@accentColor: '';
+@bodyColor: #40404a;
+@disabledColor: #bbbdbf;
+
+html {
+    scroll-behavior: smooth;
+}
+
+html, body { height: 100%; }
+body {
+    margin: 0;
+    background: @background;
+    font-family: @bodyFont;
+    font-weight: 300;
+    color: @bodyColor;
+}
+
+a {
+    text-decoration: none;
+    color: #2b49e0;
+}
+
+p {
+    font-weight: 300;
+}
+
+h1 {
+   font-family: @accentFont;
+   font-weight: 700; 
+}
+
+button {
+    border-bottom: 1px solid @primaryColor !important;
+    color: @primaryColor !important;
+    border-radius: 0 !important;
+
+    &.mat-button-disabled {
+        color: @disabledColor !important;
+        border-bottom: 1px solid @disabledColor !important;
+    }
+}
+
+.mat-snack-bar-container {
+    background: white;
+    color: @bodyColor;
+}
